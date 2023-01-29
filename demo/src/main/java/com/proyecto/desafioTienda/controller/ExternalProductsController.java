@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 
 @CrossOrigin
 @RestController
@@ -19,8 +21,8 @@ public class ExternalProductsController {
     private ExternalProductsService externalProductsService;
 
     @GetMapping("/")
-    public ResponseEntity<ExternalProductsDTO> findAll(){
-        ExternalProductsDTO externalProductsDTOS = externalProductsService.getExternalProducts();
+    public ResponseEntity<List<ExternalProductsDTO>> findAll(){
+        List<ExternalProductsDTO> externalProductsDTOS = externalProductsService.getExternalProducts();
         return ResponseEntity.ok(externalProductsDTOS);
     }
 }
